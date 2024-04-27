@@ -7,8 +7,9 @@ import do_stuff
 import input_check
 root=Tk()
 root.option_add("*tearOff", FALSE)
-root.geometry("700x700")
+root.geometry("660x500")
 root.title("Графический калькулятор")
+root.iconbitmap(default="icon.ico")
 default_regime=StringVar(value="Калькулятор")
 regime_turner=radio_knopka.rad_button_class(default_regime)
 regime_turner.make_rad_btn()
@@ -42,13 +43,6 @@ def switch_attr():
         at1_name.config(text="Атрибут 1")
         at2_name.config(text="Атрибут 2")
         mode=0
-def info_window():
-    wnd=Tk() 
-    wnd.title="Информация о приложении"
-    wnd.geometry="500x500"
-    wnd_text=ttk.Label(wnd,text="Данный калькулятор сделан при помощи Третьего рейха, Слава Сатане!666")
-    wnd_text.pack(anchor=CENTER)
-    wnd.mainloop()
 def Start():
     curr_reg=regime_turner.give_regime()
     ch1=input_check.class_check(at1.attr_btn.get())
@@ -86,6 +80,14 @@ clear_btn=ttk.Button(text="Очистить атрибуты",command=clear_attr
 clear_btn.place(x=350,y=0)
 end_btn=ttk.Button(text="ВЫХОД ИЗ ПРИЛОЖЕНИЯ",command=finish_wondow)
 end_btn.place(x=500,y=0)
+def info_window():
+    wnd=Tk() 
+    wnd.title("Информация о приложении")
+    wnd.geometry("500x85")
+    wnd.iconbitmap(default="icon.ico")
+    wnd_text=ttk.Label(wnd,width=500,text="Данный Графический Калькулятор работает в двух режимах:классический калькулятор\nпроведет за вас вычисления операций сложения/вычитания/умножения/деления,\nграфический калькулятор посчитает Периметр и Площадь прямоугольника \nпо заданным величинам (при значениях меньше 300-также проиллюстрирует).\nВ приложении есть функции:Поменять местами атрибуты, Очистить атрибуты.")
+    wnd_text.pack(anchor=N,expand=1)
+    wnd.mainloop()
 main_menu=Menu()
 file_menu=Menu()
 ops_menu=Menu()

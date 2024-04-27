@@ -8,7 +8,9 @@ class class_check(object):
         for i in self.word:
             if not(i in self.ok):
                 return False
-        if (self.word.count('.')>1 or self.word=='.' or self.word[0]=='.' or self.word[-1]=='.' or self.word.count('-')>1 or (self.word.count('-')==1 and self.word[0]!='-')):
+        if (self.word.count('.')>1 or self.word=='.' or self.word[0]=='.' \
+            or self.word[-1]=='.' or self.word.count('-')>1 or \
+            (self.word.count('-')==1 and self.word[0]!='-') or self.word=='-'):
             return False
         return True
     def do_check_rect(self):
